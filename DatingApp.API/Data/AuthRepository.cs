@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using DatingApp.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Data
 {
@@ -40,8 +41,8 @@ namespace DatingApp.API.Data
 
         public async Task<User> Register(User user, string password)
         {
-            if(UserExists(user.Username))
-                return false;
+            /*if(UserExists(user.Username))
+                return false;*/
             
             byte[] passwordHash, passwordSalt;
             // out: reference, not value
