@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,16 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
+  // values: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    // this.getValues();
   }
 
   // tslint:disable-next-line: typedef
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
+  // tslint:disable-next-line: typedef
+  // Register page - Values Combobox
+  /*getValues() {
+    this.http.get('http://localhost:5000/api/values').subscribe(response => {
+      this.values = response;
+    }, error => {
+      console.log(error);
+    });
+  }*/
+
+  // tslint:disable-next-line: typedef
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
+  }
 }
